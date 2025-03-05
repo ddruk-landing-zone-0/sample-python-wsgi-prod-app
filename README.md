@@ -33,7 +33,7 @@ brew install google-cloud-sdk
 export GCP_PROJECT_ID="hackathon0-project" # Write it properly after seeing the dashboard
 export SERVICE_AC_DISPLAYNAME="hackathon0-sa"
 export BUCKET_NAME="hackathon-bucket-0"
-export GAR_REPOSITORY_ID="python-server"
+export GAR_REPOSITORY_ID="python-prod-server"
 export GAR_LOCATION="us-central1"
 ```
 
