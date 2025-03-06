@@ -77,10 +77,12 @@ for role in resourcemanager.projectIamAdmin \
 done
 ```
 
+
 ### Create Bucket ( One Time Setup )
 ```
 gcloud storage buckets create gs://$BUCKET_NAME --location=US --uniform-bucket-level-access
 ```
+If you are getting this error : ERROR: (gcloud.storage.buckets.create) HTTPError 409: The requested bucket name is not available. Then, just set the bucket name with a more unique name, e.g. `export BUCKET_NAME="hackathon-bucket-021432"`
 
 ### Create GAR Registry ( One Time Setup )
 ```
@@ -99,9 +101,12 @@ gcloud iam service-accounts keys create key.json \
 Copy the content of key.json into GitHub Secrets in your repository. The GitHub secret key should be GCP_SA_KEY.
 
 
+
 ## CICD specific Files
- 1. Go to `.github/workflows/pipeline-main.yml`. Just change the parameters `GCP_PROJECT_ID`, `CLOUD_RUN_SERVICE` etc as per your need.
-![image](https://drive.google.com/uc?export=view&id=12RL5oPIvTNcE_cpCixaUjo-Hlp5YS9da)
+ Go to `.github/workflows/pipeline-main.yml`. 
+ 1. Just change the parameters `GCP_PROJECT_ID`, `CLOUD_RUN_SERVICE` etc as per your need.
+ 2. Change the 'uses' ref to : <YOUR_GH_USER_ID>/<REPO_NAME>/.github/workflows/python-gcp-main.yml@main
+
 
 ## Commit The Codes
 ```
@@ -110,6 +115,7 @@ sh git-push.sh main 'sample commit message'
 
 ## Verify the Deployment
 ![image](https://drive.google.com/uc?export=view&id=1QOn7-2jjjVJUICJkiz36WzTOn91gkU2L)
+
 
 ## Use skip-ci tag to bypass CI deployment
 ```
