@@ -7,7 +7,7 @@ on:
             - main
             - dev-0
 jobs:
-    main:
+    main: 
         uses: ddruk-landing-zone-0/sample-python-wsgi-prod-app/.github/workflows/python-gcp-main.yml@main
         secrets: inherit
         with:
